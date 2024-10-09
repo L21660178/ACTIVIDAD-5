@@ -1,0 +1,129 @@
+ <!-- ACTIVIDAD 5: 
+
+Objetivo: introducir el uso de variables y eventos para interactuar con el dom.
+
+Descripcion: crear un contador que aumente o disminuya al hacer clic en el boton
+el primer botón de aumentar deberá de tener el texto "subirparriba" así como en la variable el 
+segundo botón de disminuir deberá de tener el texto "bajarpabajo" así como en la variable. 
+
+ALUMNA: AMERICA JAZMIN ESTRADA HERNÁNDEZ -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Interactivo</title>
+    <style>
+        /* Estilo general del cuerpo */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Contenedor del contador */
+        .contador-container {
+            text-align: center;
+            border: 6px solid #027cff;
+            padding: 40px;
+            border-radius: 15px;
+            background-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.781);
+            transition: all 0.3s ease;
+        }
+
+        .contador-container:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilo del título del contador */
+        .titulo {
+            font-size: 48px; 
+            font-weight: bold; 
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo del contador */
+        .contador {
+            font-size: 72px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            transition: transform 0.2s ease;
+        }
+
+        .contador-container:hover .contador {
+            transform: scale(1.05);
+        }
+
+        /* Estilo de los botones */
+        button {
+            padding: 15px 20px;
+            margin: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 91, 187, 0.4);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 91, 187, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="contador-container">
+        <div class="titulo">Contador</div> 
+        <div class="contador" id="contador">0</div>
+
+        <button id="subirparriba">Subirparriba</button>
+        <button id="bajarpabajo">Bajarpabajo</button>
+    </div>
+
+    <script>
+        // Inicializamos el valor del contador
+        let contador = 0;
+
+        // Referencias a los botones
+        const subirparriba = document.getElementById('subirparriba');
+        const bajarpabajo = document.getElementById('bajarpabajo');
+        const contadorDisplay = document.getElementById('contador');
+
+        // Evento para aumentar el contador
+        subirparriba.addEventListener('click', function() {
+            contador++;
+            actualizarContador();
+        });
+
+        // Evento para disminuir el contador
+        bajarpabajo.addEventListener('click', function() {
+            contador--;
+            actualizarContador();
+        });
+
+        // Función para actualizar el DOM con el nuevo valor del contador
+        function actualizarContador() {
+            contadorDisplay.textContent = contador;
+        }
+    </script>
+
+</body>
+</html>
